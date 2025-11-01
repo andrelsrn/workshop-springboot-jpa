@@ -1,9 +1,7 @@
 package com.aulajpa.springjavacurso.resources;
 
 import com.aulajpa.springjavacurso.entities.Order;
-import com.aulajpa.springjavacurso.entities.User;
 import com.aulajpa.springjavacurso.services.OrderService;
-import com.aulajpa.springjavacurso.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
