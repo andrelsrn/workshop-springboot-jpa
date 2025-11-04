@@ -2,7 +2,6 @@ package com.aulajpa.springjavacurso.entities;
 
 import jakarta.persistence.*;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -21,7 +20,10 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "tb_product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product() {
@@ -76,8 +78,8 @@ public class Product implements Serializable {
         this.imgUrl = imgUrl;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
     @Override
